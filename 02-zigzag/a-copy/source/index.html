@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <script type="module">
+      const GA_TRACKING_ID = import.meta.env.VITE_GA_TRACKING_ID;
+
+      if (GA_TRACKING_ID) {
+        // Load gtag.js
+        const gtagScript = document.createElement('script');
+        gtagScript.setAttribute('async', '');
+        gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`;
+        document.head.appendChild(gtagScript);
+
+        // Load GTM (if you still want it, optional)
+        const gtmScript = document.createElement('script');
+        gtmScript.innerHTML = `
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-NPLSZVZ');
+    `;
+        document.head.appendChild(gtmScript);
+
+        // Setup dataLayer and gtag config
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', GA_TRACKING_ID);
+      }
+    </script>
+
+    <meta name="author" content="Michael Kolesidis" />
+    <meta
+      name="description"
+      content="A 3D zigzag game built with React Three Fiber. Stay on the wall and zigzag as far as you can! Just tap the screen to change the ball’s direction. One wrong move and you’re off the edge! How far can you make it?"
+    />
+    <meta
+      name="keywords"
+      content="zigzag, zig-zag, zigzags, casual, casual game, action, action game, runner, runner game, arcade, arcade game, abstract, abstract game, hypercasual, hypercasual game, hyper-casual, hyper-casual game, mobile game, mobile games, free game, free games, free to play, free to play game, free to play games, f2p, f2p game, f2p games, threejs, three.js, threejs, react, reactjs, react-three-fiber, react-three-fiber game, react-three-fiber games, threejs game, threejs games, react game, react games, web game, web games, webgl, webgl game, webgl games"
+    />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon" />
+    <title>ZigZag</title>
+  </head>
+  <body>
+    <img src="/logo.png" style="display: none" alt="ZigZag icon" />
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

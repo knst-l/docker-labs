@@ -1,0 +1,7 @@
+services:
+  zigzag-repository:
+    image: course-zigzag-repository:1
+    build: .
+    ports:
+      - "8082:80"
+    restart: unless-stopped

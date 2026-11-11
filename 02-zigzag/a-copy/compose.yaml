@@ -1,0 +1,7 @@
+services:
+  zigzag-copy:
+    image: course-zigzag-copy:1
+    build: .
+    ports:
+      - "8081:80"
+    restart: unless-stopped

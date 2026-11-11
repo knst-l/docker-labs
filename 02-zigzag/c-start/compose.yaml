@@ -1,0 +1,6 @@
+services:
+  zigzag-start:
+    image: course-zigzag-start:1
+    build: .
+    ports:
+      - "8084:80"

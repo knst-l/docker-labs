@@ -1,0 +1,7 @@
+services:
+  docker-hello:
+    image: course-docker-hello:1
+    build: .
+    ports:
+      - "8080:80"
+    restart: unless-stopped

@@ -1,0 +1,5 @@
+# Generated and machine-specific files
+.env
+.DS_Store
+**/node_modules/
+**/dist/
